@@ -1,0 +1,74 @@
+{
+  "27317469-eb57-4dea-b9b8-a9066e74d643": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Excel Online (Business)",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1573/1.0.1573.2770/excelonlinebusiness/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_excelonlinebusiness",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "groups%252F5c34945c-4ed8-4d31-8e62-618e82012777,b%2521EV_ctQvUrkinXuiFTcDzasna_W52_5dOuHyQWdO--62xS7F_UobWT6sZKF1ufUZw,01GM7DTEJC3OPNLVI6QFCJBNZVAWGXFFLQ": {
+        "dataSources": {
+          "Table13": {
+            "tableName": "{A7959235-CF21-469E-95E4-1B3927D73192}"
+          },
+          "Table134": {
+            "tableName": "{850D485E-E57F-4227-B117-F713CB0F7EF9}"
+          },
+          "Table7": {
+            "tableName": "{1AEF4D99-EF7A-4A44-B7ED-C8721C2B0C76}"
+          }
+        }
+      },
+      "groups%252F5c34945c-4ed8-4d31-8e62-618e82012777,b%2521EV_ctQvUrkinXuiFTcDzasna_W52_5dOuHyQWdO--62xS7F_UobWT6sZKF1ufUZw,01GM7DTEOECY2URG6YSFC2UTJGL57SLHDK": {
+        "dataSources": {
+          "Overall": {
+            "tableName": "{00000000-000C-0000-FFFF-FFFF00000000}"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Table13",
+      "Table134",
+      "Table7",
+      "Overall"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "27317469-eb57-4dea-b9b8-a9066e74d643"
+  },
+  "823383f4-3a86-41db-81e2-52e0fc2d74a1": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1568/1.0.1568.2757/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://3dtechnology.sharepoint.com/sites/3DITServiceManagement": {
+        "dataSources": {
+          "Asset Manager Data List": {
+            "tableName": "f1041d1c-56a1-4c4d-88cf-0cefa32d3573"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Asset Manager Data List"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "823383f4-3a86-41db-81e2-52e0fc2d74a1"
+  }
+}

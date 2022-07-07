@@ -1,0 +1,257 @@
+"'Asset Inventory Queue' As screen.'tabletLayout_HeaderAndGallery_ver3.0'":
+    OnVisible: |-
+        =Reset(assettypeStatus);
+        Reset(txtTitle);
+        Reset(cbUser)
+
+    Image2_1 As image:
+        BorderColor: =
+        BorderStyle: =BorderStyle.None
+        Height: =585
+        Image: =ChgRequestForm1
+        Width: =636
+        X: =365
+        ZIndex: =1
+
+    "TemplateGalleryList1 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+        Fill: =RGBA(237, 237, 237, 1)
+        Height: =615
+        Items: |-
+            =//SortByColumns(Filter('Asset Manager Data List',StartsWith(Title,txtTitle.Text), Assettype.Value =Dropdown1.SelectedText.Value || Dropdown1.SelectedText.Value = Blank()),"Title",If(SortDescending1, Descending, Ascending))
+            
+            //SortByColumns(Filter('Asset Manager Data List',Assettype.Value = Dropdown1.SelectedText.Value),"Title",If(SortDescending1, Descending, Ascending))
+            
+            Filter('Asset Manager Data List',StartsWith(Title,txtTitle.Text) && (Assettype.Value = assettypeStatus.Selected.Value || assettypeStatus.Selected.Value =Blank()) && ((chkMe.Value && CurrentOwner.DisplayName = User().FullName) || chkMe.Value=false && chkOther.Value=false) || (chkOther.Value && CurrentOwner.DisplayName = cbUser.Selected.DisplayName))
+            
+            // ((chkOther.Value &&chkOther.Value=false)
+            //)
+            
+            //Filter('Asset Manager Data List',StartsWith(Title,txtTitle.Text))
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =Min(168, Self.Height - 60)
+        Width: =Parent.Width
+        Y: =152
+        ZIndex: =1
+
+        Title1 As label:
+            Height: =34
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingRight: =0
+            Size: =15
+            Text: ="Asset Tag                 " &ThisItem.Title
+            VerticalAlign: =VerticalAlign.Top
+            Width: =1032
+            X: =32
+            Y: =15
+            ZIndex: =1
+
+        Subtitle1 As label:
+            Height: =34
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: =ThisItem.Assettype.Value
+            VerticalAlign: =VerticalAlign.Top
+            Width: =400
+            X: =209
+            Y: =114
+            ZIndex: =2
+
+        NextArrow1 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Color: =RGBA(12, 59, 96, 1)
+            Height: =60
+            Icon: =Icon.ChevronRight
+            OnSelect: =Navigate('Asset Inventory Queue_Details_Screen')
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="View item details"
+            Width: =60
+            X: =Parent.TemplateWidth - Self.Width - 5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =4
+
+        Separator1 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =5
+
+        Label6 As label:
+            Height: =33
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: =ThisItem.CurrentOwner.DisplayName
+            Width: =400
+            X: =209
+            Y: =65
+            ZIndex: =7
+
+        Label6_2 As label:
+            Height: =33
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: ="Asset type"
+            Width: =400
+            X: =34
+            Y: =114
+            ZIndex: =8
+
+        Label6_3 As label:
+            Height: =33
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: ="Current Owner"
+            Width: =400
+            X: =32
+            Y: =65
+            ZIndex: =9
+
+    Rectangle1_2 As rectangle:
+        Fill: =RGBA(12, 59, 96, 1)
+        Height: =114
+        Width: =555
+        X: =811
+        ZIndex: =3
+
+    Rectangle1_3 As rectangle:
+        Fill: =RGBA(12, 59, 96, 1)
+        Height: =114
+        Width: =555
+        ZIndex: =4
+
+    Icon3 As icon.BackArrow:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.BackArrow
+        OnSelect: =Back()
+        Width: =60
+        X: =7
+        Y: =21
+        ZIndex: =5
+
+    assettypeStatus As dropdown:
+        AllowEmptySelection: =true
+        ChevronBackground: =RGBA(255, 255, 255, 1)
+        ChevronFill: =ForestGreen
+        Default: =""
+        Fill: =RGBA(237, 237, 237, 1)
+        Height: =34
+        Items: |-
+            =
+            Choices('Asset Manager Data List'.Assettype)
+            //["", "Barcode Scanner","Case","Docking Station","Headset","Headset Adapter","Laptop","Monitor","PC","Phone","Printer","Server","Switch","Tablet","TV"]
+        SelectionFill: =RGBA(54, 176, 75, 1)
+        Size: =12
+        Tooltip: ="""Asset Type"""
+        Width: =225
+        X: =251
+        Y: =3
+        ZIndex: =6
+
+    Icon4 As icon.ArrowsUpDown:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Sort
+        OnSelect: |-
+            =UpdateContext({SortDescending1: !SortDescending1})
+        X: =1273
+        Y: =21
+        ZIndex: =7
+
+    Label4 As label:
+        Align: =Align.Right
+        Color: =RGBA(255, 255, 255, 1)
+        PaddingLeft: =0
+        Text: ="Asset type is"
+        Width: =135
+        X: =116
+        ZIndex: =8
+
+    Label5 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =34
+        Text: |-
+            ="Number of records: " & CountRows(TemplateGalleryList1.AllItems)
+        Width: =226
+        X: =957
+        Y: =67
+        ZIndex: =9
+
+    txtTitle As text:
+        Default: =""
+        Fill: =RGBA(237, 237, 237, 1)
+        Height: =34
+        HintText: =""
+        Width: =225
+        X: =251
+        Y: =39
+        ZIndex: =10
+
+    Label7 As label:
+        Align: =Align.Right
+        Color: =RGBA(255, 255, 255, 1)
+        PaddingLeft: =0
+        Text: ="Asset tag is"
+        Width: =135
+        X: =116
+        Y: =34
+        ZIndex: =11
+
+    chkOther As checkbox:
+        Text: =""
+        Width: =49
+        X: =82
+        Y: =65
+        ZIndex: =13
+
+    Icon6 As icon.Reset:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =47
+        Icon: =Icon.Reset
+        OnSelect: =Reset(assettypeStatus);Reset(txtTitle)
+        Width: =50
+        X: =502
+        Y: =37
+        ZIndex: =14
+
+    Label7_1 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Size: =11.5
+        Text: ="Current Owner is"
+        Width: =135
+        X: =112
+        Y: =76
+        ZIndex: =15
+
+    cbUser As combobox:
+        BorderColor: =
+        ChevronBackground: =RGBA(12, 59, 96, 100)
+        DefaultSelectedItems: =
+        DisabledFill: =RGBA(237, 237, 237, 1)
+        DisplayFields: =["DisplayName","Email","Picture"]
+        DisplayMode: =
+        Fill: =RGBA(237, 237, 237, 1)
+        Height: =34
+        InputTextPlaceholder: ="search users"
+        Items: =Choices([@'Asset Manager Data List'].CurrentOwner)
+        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+        SearchFields: =["DisplayName"]
+        SearchItems: =Choices('Asset Manager Data List'.CurrentOwner,cbUser.SearchText)
+        SelectMultiple: =false
+        Template: =ListItemTemplate.Person
+        Tooltip: =
+        Width: =225
+        X: =251
+        Y: =73
+        ZIndex: =16
+
+    chkMe As checkbox:
+        Text: ="chkMe"
+        Visible: =false
+        X: =837
+        ZIndex: =17
+

@@ -1,0 +1,53 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+    "CdpRevision": {
+      "BaseUrl": "/",
+      "LastChangedTimeString": "2022-04-25T16:29:02.6800000Z",
+      "RevisionNumber": 1
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "{Attachments}": "Attachments",
+      "{Attachments}@odata.type": "{Attachments} ({Attachments}@odata.type)",
+      "{FilenameWithExtension}": "File name with extension",
+      "{FullPath}": "Full Path",
+      "{HasAttachments}": "Has attachments",
+      "{Identifier}": "Identifier",
+      "{IsFolder}": "IsFolder",
+      "{Link}": "Link to item",
+      "{ModerationComment}": "Comments associated with the content approval of this list item",
+      "{ModerationStatus}": "Content approval status",
+      "{Name}": "Name",
+      "{Path}": "Folder path",
+      "{Thumbnail}": "Thumbnail",
+      "{TriggerWindowEndToken}": "Trigger Window End Token",
+      "{TriggerWindowStartToken}": "Trigger Window Start Token",
+      "{VersionNumber}": "Version number",
+      "Author": "Created By",
+      "Author#Claims": "Created By Claims",
+      "ComplianceAssetId": "Compliance Asset Id",
+      "Created": "Created",
+      "CurrentOwner": "CurrentOwner",
+      "CurrentOwner#Claims": "CurrentOwner Claims",
+      "Editor": "Modified By",
+      "Editor#Claims": "Modified By Claims",
+      "field_1": "Date Modified",
+      "field_2": "Assettype",
+      "field_2#Id": "Assettype Id",
+      "field_3": "Serial Number",
+      "field_5": "Model",
+      "field_6": "Comments",
+      "field_7": "__PowerAppsId__",
+      "ID": "ID",
+      "Modified": "Modified",
+      "Service_x0020_Tag": "Service Tag",
+      "Title": "Title"
+    },
+    "DatasetName": "https://3dtechnology.sharepoint.com/sites/3DITServiceManagement",
+    "EncodeDataset": true,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "Asset Manager Data List",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

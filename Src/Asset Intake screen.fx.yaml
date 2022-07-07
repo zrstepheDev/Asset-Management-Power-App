@@ -1,0 +1,613 @@
+"'Asset Intake screen' As screen.'tabletLayout_HeaderAndGallery_ver3.0'":
+    BackgroundImage: =
+    Fill: =RGBA(237, 237, 237, 1)
+
+    Image6 As image:
+        Height: =634
+        Image: =NaturalLogoLarge
+        Transparency: =0.9
+        Width: =1366
+        ZIndex: =1
+
+    Label2 As label:
+        Align: =Align.Center
+        Color: =RGBA(12, 59, 96, 1)
+        Height: =80
+        Size: =30
+        Text: |-
+            ="Asset Assignment
+            "
+        Width: =1364
+        ZIndex: =2
+
+    Icon1 As icon.BackArrow:
+        Color: =RGBA(12, 59, 96, 1)
+        Height: =50
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate('Home Page')
+        Width: =48
+        X: =18
+        Y: =14
+        ZIndex: =4
+
+    Button2 As button:
+        Fill: =RGBA(12, 59, 96, 1)
+        OnSelect: |-
+            =SubmitForm(Form3);
+            Navigate('Home Page',ScreenTransition.CoverRight);
+            ResetForm(Form3)
+        Text: ="Submit"
+        X: =586
+        Y: =645
+        ZIndex: =5
+
+    Form3 As form:
+        DataSource: ='Asset Manager Data List'
+        DefaultMode: =FormMode.New
+        Height: =549
+        NumberOfColumns: =2
+        OnSuccess: =Navigate('Home Page')
+        Width: =1366
+        Y: =85
+        ZIndex: =6
+
+        Title_DataCard3 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Title"
+            Default: =ThisItem.Title
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Asset Manager Data List'],DataSourceInfo.DisplayName,"Title")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@'Asset Manager Data List'], DataSourceInfo.MaxLength, "Title")
+            Required: =false
+            Update: =DataCardValue22.Text
+            Width: =683
+            X: =0
+            Y: =0
+            ZIndex: =7
+
+            DataCardKey22 As label:
+                AutoHeight: =true
+                Color: =RGBA(12, 59, 96, 1)
+                Height: =34
+                Text: ="Asset ID"
+                Width: =100
+                Wrap: =false
+                X: =126
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue22 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(237, 237, 237, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =250
+                X: =126
+                Y: =DataCardKey22.Y + DataCardKey22.Height + 5
+                ZIndex: =2
+
+            ErrorMessage22 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue22.Y + DataCardValue22.Height
+                ZIndex: =3
+
+            StarVisible22 As label:
+                Align: =Align.Center
+                Height: =DataCardKey22.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey22.Y
+                ZIndex: =4
+
+        Assettype_DataCard3 As typedDataCard.comboBoxEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="field_2"
+            Default: =ThisItem.Assettype
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Asset Manager Data List'],DataSourceInfo.DisplayName,"field_2")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue24.Selected
+            Width: =683
+            X: =1
+            Y: =0
+            ZIndex: =7
+
+            DataCardKey24 As label:
+                AutoHeight: =true
+                Color: =RGBA(12, 59, 96, 1)
+                Height: =34
+                Text: ="Asset Type"
+                Width: =500
+                Wrap: =false
+                X: =84
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue24 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                ChevronBackground: =RGBA(12, 59, 96, 100)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(237, 237, 237, 1)
+                InputTextPlaceholder: ="Select asset type"
+                Items: =Choices([@'Asset Manager Data List'].Assettype)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =Choices('Asset Manager Data List'.Assettype,DataCardValue24.SearchText)
+                SelectMultiple: =false
+                Tooltip: =Parent.DisplayName
+                Width: =250
+                X: =84
+                Y: =DataCardKey24.Y + DataCardKey24.Height + 5
+                ZIndex: =2
+
+            ErrorMessage24 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue24.Y + DataCardValue24.Height
+                ZIndex: =3
+
+            StarVisible24 As label:
+                Align: =Align.Center
+                Height: =DataCardKey24.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey24.Y
+                ZIndex: =4
+
+        Model_DataCard3 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="field_5"
+            Default: =ThisItem.Model
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Asset Manager Data List'],DataSourceInfo.DisplayName,"field_5")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@'Asset Manager Data List'], DataSourceInfo.MaxLength, "field_5")
+            Required: =false
+            Update: =DataCardValue27.Text
+            Width: =683
+            X: =0
+            Y: =1
+            ZIndex: =7
+
+            DataCardKey27 As label:
+                AutoHeight: =true
+                Color: =RGBA(12, 59, 96, 1)
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =100
+                Wrap: =false
+                X: =126
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue27 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(237, 237, 237, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =250
+                X: =126
+                Y: =DataCardKey27.Y + DataCardKey27.Height + 5
+                ZIndex: =2
+
+            ErrorMessage27 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue27.Y + DataCardValue27.Height
+                ZIndex: =3
+
+            StarVisible27 As label:
+                Align: =Align.Center
+                Height: =DataCardKey27.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey27.Y
+                ZIndex: =4
+
+        "'Serial Number_DataCard3' As typedDataCard.textualEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="field_3"
+            Default: =ThisItem.'Serial Number'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Asset Manager Data List'],DataSourceInfo.DisplayName,"field_3")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@'Asset Manager Data List'], DataSourceInfo.MaxLength, "field_3")
+            Required: =false
+            Update: =DataCardValue25.Text
+            Width: =683
+            X: =1
+            Y: =1
+            ZIndex: =7
+
+            DataCardKey25 As label:
+                AutoHeight: =true
+                Color: =RGBA(12, 59, 96, 1)
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =500
+                Wrap: =false
+                X: =84
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue25 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(237, 237, 237, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =250
+                X: =84
+                Y: =DataCardKey25.Y + DataCardKey25.Height + 5
+                ZIndex: =2
+
+            ErrorMessage25 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue25.Y + DataCardValue25.Height
+                ZIndex: =3
+
+            StarVisible25 As label:
+                Align: =Align.Center
+                Height: =DataCardKey25.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey25.Y
+                ZIndex: =4
+
+        "'Service Tag_DataCard3' As typedDataCard.textualEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Service_x0020_Tag"
+            Default: =ThisItem.'Service Tag'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Asset Manager Data List'],DataSourceInfo.DisplayName,"Service_x0020_Tag")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@'Asset Manager Data List'], DataSourceInfo.MaxLength, "Service_x0020_Tag")
+            Required: =false
+            Update: =DataCardValue30.Text
+            Width: =683
+            X: =0
+            Y: =2
+            ZIndex: =7
+
+            DataCardKey30 As label:
+                AutoHeight: =true
+                Color: =RGBA(12, 59, 96, 1)
+                Height: =34
+                Text: ="Service Tag (If Dell device)"
+                Width: =350
+                Wrap: =false
+                X: =126
+                Y: =5
+                ZIndex: =1
+
+            DataCardValue30 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(237, 237, 237, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =250
+                X: =126
+                Y: =55
+                ZIndex: =2
+
+            ErrorMessage30 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue30.Y + DataCardValue30.Height
+                ZIndex: =3
+
+            StarVisible30 As label:
+                Align: =Align.Center
+                Height: =DataCardKey30.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey30.Y
+                ZIndex: =4
+
+        CurrentOwner_DataCard2 As typedDataCard.comboBoxEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="CurrentOwner"
+            Default: =ThisItem.CurrentOwner
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Asset Manager Data List'],DataSourceInfo.DisplayName,"CurrentOwner")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =true
+            Update: =DataCardValue31.Selected
+            Width: =683
+            X: =1
+            Y: =2
+            ZIndex: =7
+
+            DataCardKey31 As label:
+                AutoHeight: =true
+                Color: =RGBA(12, 59, 96, 1)
+                Height: =34
+                Text: ="Current Owner"
+                Width: =500
+                Wrap: =false
+                X: =84
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue31 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                ChevronBackground: =RGBA(12, 59, 96, 100)
+                DefaultSelectedItems: =Parent.Default
+                DisabledFill: =RGBA(237, 237, 237, 1)
+                DisplayFields: =["DisplayName","Email","Picture"]
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(237, 237, 237, 1)
+                Items: =Choices([@'Asset Manager Data List'].CurrentOwner)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["DisplayName"]
+                SearchItems: =Choices('Asset Manager Data List'.CurrentOwner,DataCardValue31.SearchText)
+                SelectMultiple: =false
+                Template: =ListItemTemplate.Person
+                Tooltip: =Parent.DisplayName
+                Width: |
+                    =250
+                X: =84
+                Y: =DataCardKey31.Y + DataCardKey31.Height + 5
+                ZIndex: =2
+
+            ErrorMessage31 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue31.Y + DataCardValue31.Height
+                ZIndex: =3
+
+            StarVisible31 As label:
+                Align: =Align.Center
+                Color: =RGBA(184, 0, 0, 1)
+                Height: =DataCardKey31.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                X: =26
+                Y: =DataCardKey31.Y
+                ZIndex: =4
+
+        "'Date Modified_DataCard3' As typedDataCard.dateEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="field_1"
+            Default: =ThisItem.'Date Modified'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Asset Manager Data List'],DataSourceInfo.DisplayName,"field_1")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =true
+            Update: =DataCardValue23.SelectedDate
+            Visible: =false
+            Width: =683
+            X: =0
+            Y: =3
+            ZIndex: =7
+
+            DataCardKey23 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue23 As datepicker:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DisplayMode: =Parent.DisplayMode
+                EndYear: =Year(Today())+100
+                IsEditable: =true
+                PaddingBottom: =0
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                StartYear: =1899
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey23.Y + DataCardKey23.Height + 5
+                ZIndex: =2
+
+            ErrorMessage23 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue23.Y + DataCardValue23.Height
+                ZIndex: =3
+
+            StarVisible23 As label:
+                Align: =Align.Center
+                Height: =DataCardKey23.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey23.Y
+                ZIndex: =4
+
+        Comments_DataCard3 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="field_6"
+            Default: =ThisItem.Comments
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Asset Manager Data List'],DataSourceInfo.DisplayName,"field_6")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@'Asset Manager Data List'], DataSourceInfo.MaxLength, "field_6")
+            Required: =false
+            Update: =DataCardValue28.Text
+            Width: =1250
+            X: =1
+            Y: =3
+            ZIndex: =7
+
+            DataCardKey28 As label:
+                AutoHeight: =true
+                Color: =RGBA(12, 59, 96, 1)
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =1000
+                Wrap: =false
+                X: =122
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue28 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(237, 237, 237, 1)
+                Height: =45
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =1098
+                X: =122
+                Y: =44
+                ZIndex: =2
+
+            ErrorMessage28 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue28.Y + DataCardValue28.Height
+                ZIndex: =3
+
+            StarVisible28 As label:
+                Align: =Align.Center
+                Height: =DataCardKey28.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey28.Y
+                ZIndex: =4
+

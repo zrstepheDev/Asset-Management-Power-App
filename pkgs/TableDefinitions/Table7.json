@@ -1,0 +1,7 @@
+{
+  "DataEntityMetadataJson": {
+    "{1AEF4D99-EF7A-4A44-B7ED-C8721C2B0C76}": "{\"name\":\"{1AEF4D99-EF7A-4A44-B7ED-C8721C2B0C76}\",\"title\":\"Table7\",\"x-ms-permission\":\"read-write\",\"x-ms-capabilities\":{\"sortRestrictions\":{\"sortable\":true},\"filterRestrictions\":{\"filterable\":true},\"filterFunctionSupport\":[\"eq\",\"ne\",\"substringof\",\"contains\",\"startswith\",\"endswith\"]},\"schema\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"Column1\":{\"type\":\"string\",\"title\":\"Column1\",\"x-ms-sort\":\"none\",\"x-ms-capabilities\":{\"filterFunctions\":[\"eq\",\"ne\",\"substringof\",\"contains\",\"startswith\",\"endswith\"]},\"x-ms-permission\":\"read-write\"},\"Column2\":{\"type\":\"string\",\"title\":\"Column2\",\"x-ms-sort\":\"none\",\"x-ms-capabilities\":{\"filterFunctions\":[\"eq\",\"ne\",\"substringof\",\"contains\",\"startswith\",\"endswith\"]},\"x-ms-permission\":\"read-write\"}}}}}"
+  },
+  "EntityName": "Table7",
+  "TableName": "{1AEF4D99-EF7A-4A44-B7ED-C8721C2B0C76}"
+}

@@ -1,0 +1,76 @@
+"'Home Page' As screen":
+    Fill: =RGBA(255, 255, 255, 1)
+
+    Image2 As image:
+        BorderColor: =
+        BorderStyle: =BorderStyle.None
+        Height: =768
+        Image: =ChgRequestForm1
+        Width: =636
+        X: =365
+        ZIndex: =1
+
+    Rectangle1 As rectangle:
+        Fill: =RGBA(12, 59, 96, 1)
+        Height: =150.5
+        Width: =378
+        X: =988
+        ZIndex: =2
+
+    Rectangle1_1 As rectangle:
+        Fill: =RGBA(12, 59, 96, 1)
+        Height: =150.5
+        Width: =377
+        ZIndex: =3
+
+    Rectangle2 As rectangle:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =559
+        Width: =1366
+        Y: =208
+        ZIndex: =4
+
+    Label1 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =80
+        Size: =25
+        Text: ="3D Internal Asset Management"
+        Width: =595
+        X: =13
+        Y: =34
+        ZIndex: =5
+
+    Button1 As button:
+        Fill: =RGBA(12, 59, 96, 1)
+        OnSelect: =Navigate('Asset Intake screen',ScreenTransition.Fade)
+        Text: ="Asset Assignment"
+        Width: =190
+        X: =588
+        Y: =318
+        ZIndex: =6
+
+    Button1_1 As button:
+        Fill: =RGBA(12, 59, 96, 1)
+        OnSelect: =Navigate('Asset Inventory Queue',ScreenTransition.Fade)
+        Text: ="Inventory"
+        Width: =190
+        X: =588
+        Y: =444
+        ZIndex: =7
+
+    Rectangle3 As rectangle:
+        Fill: =RGBA(12, 59, 96, 1)
+        Height: =67
+        Width: =1366
+        Y: =700
+        ZIndex: =8
+
+    Label3 As label:
+        Color: =RGBA(63, 174, 73, 1)
+        Height: =24
+        Text: ="V.2.3."
+        Width: =70
+        X: =1269
+        Y: =10
+        ZIndex: =9
+
